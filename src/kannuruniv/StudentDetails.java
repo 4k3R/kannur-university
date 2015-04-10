@@ -9,9 +9,9 @@ public class StudentDetails {
 	private static String SUBMIT = "SUBMIT";
 
 	private String registerNo;
-	private int birthDay;
-	private int birthMonth;
-	private int birthYear;
+	private String birthDay;
+	private String birthMonth;
+	private String birthYear;
 
 	/**
 	 * @param registerNo
@@ -19,8 +19,8 @@ public class StudentDetails {
 	 * @param birthMonth
 	 * @param birthYear
 	 */
-	public StudentDetails(String registerNo, int birthDay, int birthMonth,
-			int birthYear) {
+	public StudentDetails(String registerNo, String birthDay, String birthMonth,
+			String birthYear) {
 		this.registerNo = registerNo;
 		this.birthDay = birthDay;
 		this.birthMonth = birthMonth;
@@ -35,27 +35,27 @@ public class StudentDetails {
 		this.registerNo = registerNo;
 	}
 
-	public int getBirthDay() {
+	public String getBirthDay() {
 		return birthDay;
 	}
 
-	public void setBirthDay(int birthDay) {
+	public void setBirthDay(String birthDay) {
 		this.birthDay = birthDay;
 	}
 
-	public int getBirthMonth() {
+	public String getBirthMonth() {
 		return birthMonth;
 	}
 
-	public void setBirthMonth(int birthMonth) {
+	public void setBirthMonth(String birthMonth) {
 		this.birthMonth = birthMonth;
 	}
 
-	public int getBirthYear() {
+	public String getBirthYear() {
 		return birthYear;
 	}
 
-	public void setBirthYear(int birthYear) {
+	public void setBirthYear(String birthYear) {
 		this.birthYear = birthYear;
 	}
 
