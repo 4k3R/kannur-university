@@ -22,7 +22,8 @@ import org.apache.http.message.BasicNameValuePair;
  */
 public class NetworkCall {
 	
-	public int sendRequest(StudentDetails studentDetails, RequestUri requestUri) throws ClientProtocolException, IOException {
+	public int requestHallTicket(StudentDetails studentDetails, RequestUri requestUri)
+			throws ClientProtocolException, IOException {
 		
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpPost postRequest = new HttpPost(requestUri.getUri());
@@ -40,12 +41,35 @@ public class NetworkCall {
 			return 0;
 		}
 		
-		saveFileToDisk(response, studentDetails.getRegisterNo()+".pdf");
+		saveFileToDisk(response, "Hallticket " + studentDetails.getRegisterNo()+".pdf");
 		
 		return response.getStatusLine().getStatusCode();
 	}
 	
-	public void saveFileToDisk(HttpResponse response, String fileDirectory) throws IllegalStateException, IOException {
+	public int requestMarkList(StudentDetails studentDetails, RequestUri requestUri)
+			throws IllegalStateException, IOException {
+		
+		HttpClient client = HttpClientBuilder.create().build();
+		HttpPost postRequest = new HttpPost(requestUri.getUri());
+
+		List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+		urlParameters.add(new BasicNameValuePair("regno", studentDetails.getRegisterNo()));
+		urlParameters.add(new BasicNameValuePair("type", studentDetails.getExamType()));
+		
+		postRequest.setEntity(new UrlEncodedFormEntity(urlParameters));
+		HttpResponse response = client.execute(postRequest);
+		
+		if (response.getStatusLine().getStatusCode() != 200) {
+			return 0;
+		}
+		
+		saveFileToDisk(response, "Result " + studentDetails.getRegisterNo()+".pdf");
+		
+		return response.getStatusLine().getStatusCode();
+	}
+	
+	public void saveFileToDisk(HttpResponse response, String fileDirectory)
+			throws IllegalStateException, IOException {
 		
 		InputStream fromResponse = response.getEntity().getContent();
 		OutputStream toDisk = new FileOutputStream(fileDirectory);

@@ -12,6 +12,7 @@ public class StudentDetails {
 	private String birthDay;
 	private String birthMonth;
 	private String birthYear;
+	private String examType;
 
 	/**
 	 * @param registerNo
@@ -19,6 +20,11 @@ public class StudentDetails {
 	 * @param birthMonth
 	 * @param birthYear
 	 */
+	public StudentDetails(String registerNo, String examType) {
+		this.registerNo = registerNo;
+		this.examType = examType;
+	}
+	
 	public StudentDetails(String registerNo, String birthDay, String birthMonth,
 			String birthYear) {
 		this.registerNo = registerNo;
@@ -57,6 +63,14 @@ public class StudentDetails {
 
 	public void setBirthYear(String birthYear) {
 		this.birthYear = birthYear;
+	}
+
+	public String getExamType() {
+		return examType;
+	}
+
+	public void setExamType(String examType) {
+		this.examType = examType;
 	}
 
 }
