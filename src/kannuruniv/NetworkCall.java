@@ -1,6 +1,9 @@
 package kannuruniv;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +22,7 @@ import org.apache.http.message.BasicNameValuePair;
  */
 public class NetworkCall {
 	
-	public void sendRequest(StudentDetails studentDetails, RequestUri requestUri) throws ClientProtocolException, IOException {
+	public int sendRequest(StudentDetails studentDetails, RequestUri requestUri) throws ClientProtocolException, IOException {
 		
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpPost postRequest = new HttpPost(requestUri.getUri());
@@ -33,8 +36,28 @@ public class NetworkCall {
 		postRequest.setEntity(new UrlEncodedFormEntity(urlParameters));
 		HttpResponse response = client.execute(postRequest);
 		
-		System.out.println("Response Code: " + response.getStatusLine());
+		if (response.getStatusLine().getStatusCode() != 200) {
+			return 0;
+		}
 		
+		saveFileToDisk(response, studentDetails.getRegisterNo()+".pdf");
+		
+		return response.getStatusLine().getStatusCode();
+	}
+	
+	public void saveFileToDisk(HttpResponse response, String fileDirectory) throws IllegalStateException, IOException {
+		
+		InputStream fromResponse = response.getEntity().getContent();
+		OutputStream toDisk = new FileOutputStream(fileDirectory);
+		int length;
+		byte b[] = new byte[1024];
+		
+		while((length = fromResponse.read(b))!=-1) {
+			toDisk.write(b, 0, length);
+		}
+		
+		fromResponse.close();
+		toDisk.close();		
 	}
 	
 }

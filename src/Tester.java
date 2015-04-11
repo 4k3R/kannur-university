@@ -19,7 +19,8 @@ public class Tester {
 		StudentDetails profile = new StudentDetails("B1ENCS5106", "28", "8", "1993");
 		RequestUri uri = new RequestUri(URI);
 		NetworkCall call = new NetworkCall();
-		call.sendRequest(profile, uri);
+		
+		System.out.println("Response code: " + call.sendRequest(profile, uri)+ ", Succesful");
 		
 	}
 
