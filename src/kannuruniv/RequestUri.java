@@ -1,3 +1,8 @@
+/*
+ * RequestUri stores the url of the form
+ * It has a parseRequestUri to parse the URL to get
+ * the form action url
+ */
 package kannuruniv;
 
 import java.io.IOException;

@@ -1,3 +1,8 @@
+/*
+ * Network call takes care of all HttpRequests. 
+ * requestHallTicket method is used to download hall ticket
+ * requestMarkList method is used to download mark list
+ */
 package kannuruniv;
 
 import java.io.FileOutputStream;

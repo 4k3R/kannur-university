@@ -1,3 +1,8 @@
+/*
+ * StudentDetails stores details of students
+ * registerNo, birthDay, birthMonth & birthYear are mandatory for downloading hall ticket
+ * registerNo & examType are mandatory for downloading mark list
+ */
 package kannuruniv;
 
 /**
