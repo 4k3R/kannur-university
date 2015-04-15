@@ -9,15 +9,15 @@ package kannuruniv;
  * @author Anjith Sasindran
  *
  */
-public class StudentDetails {
+public abstract class StudentDetails {
 	@SuppressWarnings("unused")
 	private static String SUBMIT = "SUBMIT";
 
 	private String registerNo;
-	private String birthDay;
-	private String birthMonth;
-	private String birthYear;
-	private String examType;
+	protected String birthDay;
+	protected String birthMonth;
+	protected String birthYear;
+	protected String examType;
 
 	/**
 	 * @param registerNo
@@ -44,38 +44,6 @@ public class StudentDetails {
 
 	public void setRegisterNo(String registerNo) {
 		this.registerNo = registerNo;
-	}
-
-	public String getBirthDay() {
-		return birthDay;
-	}
-
-	public void setBirthDay(String birthDay) {
-		this.birthDay = birthDay;
-	}
-
-	public String getBirthMonth() {
-		return birthMonth;
-	}
-
-	public void setBirthMonth(String birthMonth) {
-		this.birthMonth = birthMonth;
-	}
-
-	public String getBirthYear() {
-		return birthYear;
-	}
-
-	public void setBirthYear(String birthYear) {
-		this.birthYear = birthYear;
-	}
-
-	public String getExamType() {
-		return examType;
-	}
-
-	public void setExamType(String examType) {
-		this.examType = examType;
 	}
 
 }

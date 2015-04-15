@@ -27,17 +27,17 @@ import org.apache.http.message.BasicNameValuePair;
  */
 public class NetworkCall {
 	
-	public int requestHallTicket(StudentDetails studentDetails, RequestUri requestUri)
+	public int requestHallTicket(HallTicket hallTicket, RequestUri requestUri)
 			throws ClientProtocolException, IOException {
 		
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpPost postRequest = new HttpPost(requestUri.getUri());
 
 		List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
-		urlParameters.add(new BasicNameValuePair("login", studentDetails.getRegisterNo()));
-		urlParameters.add(new BasicNameValuePair("dobd", studentDetails.getBirthDay()));
-		urlParameters.add(new BasicNameValuePair("dobm", studentDetails.getBirthMonth()));
-		urlParameters.add(new BasicNameValuePair("doby", studentDetails.getBirthYear()));
+		urlParameters.add(new BasicNameValuePair("login", hallTicket.getRegisterNo()));
+		urlParameters.add(new BasicNameValuePair("dobd", hallTicket.getBirthDay()));
+		urlParameters.add(new BasicNameValuePair("dobm", hallTicket.getBirthMonth()));
+		urlParameters.add(new BasicNameValuePair("doby", hallTicket.getBirthYear()));
 		
 		postRequest.setEntity(new UrlEncodedFormEntity(urlParameters));
 		HttpResponse response = client.execute(postRequest);
@@ -46,20 +46,20 @@ public class NetworkCall {
 			return 0;
 		}
 		
-		saveFileToDisk(response, "Hallticket " + studentDetails.getRegisterNo()+".pdf");
+		saveFileToDisk(response, "Hallticket " + hallTicket.getRegisterNo()+".pdf");
 		
 		return response.getStatusLine().getStatusCode();
 	}
 	
-	public int requestMarkList(StudentDetails studentDetails, RequestUri requestUri)
+	public int requestMarkList(MarkList markList, RequestUri requestUri)
 			throws IllegalStateException, IOException {
 		
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpPost postRequest = new HttpPost(requestUri.getUri());
 
 		List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
-		urlParameters.add(new BasicNameValuePair("regno", studentDetails.getRegisterNo()));
-		urlParameters.add(new BasicNameValuePair("type", studentDetails.getExamType()));
+		urlParameters.add(new BasicNameValuePair("regno", markList.getRegisterNo()));
+		urlParameters.add(new BasicNameValuePair("type", markList.getExamType()));
 		
 		postRequest.setEntity(new UrlEncodedFormEntity(urlParameters));
 		HttpResponse response = client.execute(postRequest);
@@ -68,7 +68,7 @@ public class NetworkCall {
 			return 0;
 		}
 		
-		saveFileToDisk(response, "Result " + studentDetails.getRegisterNo()+".pdf");
+		saveFileToDisk(response, "Result " + markList.getRegisterNo()+".pdf");
 		
 		return response.getStatusLine().getStatusCode();
 	}

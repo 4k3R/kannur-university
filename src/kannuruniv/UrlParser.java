@@ -25,7 +25,7 @@ public abstract class UrlParser {
 		String phpFormAction = form.attr("action");
 		
 		/*
-		 * phpFormAction is the form action which is absolute link
+		 * phpFormAction is the value of form attribute action which is absolute link
 		 * lastIndex calculates the last occurance of "/" and replaces
 		 * the rest of the characters with the form action
 		 */

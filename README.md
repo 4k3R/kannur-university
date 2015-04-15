@@ -13,7 +13,7 @@ Example
 Requires register number and birthday to be set
 
 ```
-StudentDetails anjith = new StudentDetails("B1ENCS5106", "28", "8", "1993");
+HallTicket anjith = new HallTicket("B1ENCS5106", "28", "8", "1993");
 RequestUri uri = new RequestUri("http://14.139.185.42/kannur/assistant/online/btech8regular2015/btech8thhal.php");
 uri.parseRequestUri();
 NetworkCall call = new NetworkCall();
@@ -34,7 +34,7 @@ Requires register number and exam type to be set
 - I - Improvement
 
 ```
-StudentDetails anjith = new StudentDetails("B1ENCS5106", "R");
+MarkList anjith = new MarkList("B1ENCS5106", "R");
 RequestUri uri = new RequestURi("http://14.139.185.42/kannur/assistant/btech7Result112014ren/btech7th.php");
 uri.parseRequestUri();
 NetworkCall call = new NetworkCall();
