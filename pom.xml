@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.4k3R</groupId>
+  <artifactId>kannur-university</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Kannur University</name>
+  <description>A java library, which provides a simple way to download pdf's of mark lists and hall tickets from www.kannuruniversity.ac.in of students</description>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source/>
+          <target/>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <url>https://github.com/4k3R/kannur-university</url>
+</project>
