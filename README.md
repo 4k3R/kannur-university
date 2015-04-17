@@ -5,6 +5,11 @@ A java library, which provides a simple way to download pdf's of mark lists and 
 
 API uses [Apache Http Package](https://hc.apache.org/) for making requests and gettings responses, and [Jsoup](http://jsoup.org/) for finding the request url from the input url (web scraping)
 
+How to Use
+----------
+
+Download the jar file [kannur-university-1.0.jar](https://github.com/4k3R/kannur-university/blob/master/kannur-university-1.0.jar?raw=true) and set class path in java. Alternatively add the library to your build path in your favorite IDE.
+
 Example
 -------
 
@@ -35,7 +40,7 @@ Requires register number and exam type to be set
 
 ```
 MarkList anjith = new MarkList("B1ENCS5106", "R");
-RequestUri uri = new RequestURi("http://14.139.185.42/kannur/assistant/btech7Result112014ren/btech7th.php");
+RequestUri uri = new RequestUri("http://14.139.185.42/kannur/assistant/btech7Result112014ren/btech7th.php");
 uri.parseRequestUri();
 NetworkCall call = new NetworkCall();
 
