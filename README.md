@@ -10,6 +10,8 @@ How to Use
 
 Download the jar file [kannur-university-1.0.jar](https://github.com/4k3R/kannur-university/blob/master/kannur-university-1.0.jar?raw=true) and set class path in java. Alternatively add the library to your build path in your favorite IDE.
 
+Quick video demo on using Kannur University Library https://www.youtube.com/watch?v=NRMvYG0rbNE 
+
 Example
 -------
 
